@@ -1,0 +1,78 @@
+[
+  {
+    "name": "Role-based sign-in opens the assigned portal",
+    "sanity": true,
+    "viewport": "desktop",
+    "covers": [
+      "JWT authentication",
+      "role-based portal routing",
+      "manager-only portal"
+    ],
+    "description": "Checks that the backend-assigned role determines the portal after sign-in.",
+    "steps": [
+      "Configure the Express API URL",
+      "Sign in with a manager account",
+      "Verify the manager workspace opens",
+      "Sign out and sign in with a student account",
+      "Verify the student portal opens"
+    ],
+    "expected": "Manager and student accounts open separate role-appropriate portals; users cannot select their own role."
+  },
+  {
+    "name": "Student manages personal event participation",
+    "viewport": "desktop",
+    "covers": [
+      "event discovery",
+      "team registration",
+      "my team",
+      "project submission",
+      "personal help tickets"
+    ],
+    "description": "Checks the main student participation workflow.",
+    "steps": [
+      "Sign in as a student",
+      "Browse events and register a team",
+      "Open My Team",
+      "Save project details",
+      "Raise a mentor help request"
+    ],
+    "expected": "The student can access their own participation information and requests, not global manager data."
+  },
+  {
+    "name": "Judge, mentor and volunteer portals remain restricted",
+    "viewport": "mobile",
+    "covers": [
+      "judge access boundary",
+      "mentor help desk",
+      "volunteer check-in",
+      "server-side role enforcement"
+    ],
+    "description": "Checks the restricted operational portals.",
+    "steps": [
+      "Sign in as a judge and inspect assigned work",
+      "Sign in as a mentor and inspect help requests",
+      "Sign in as a volunteer and validate a check-in code"
+    ],
+    "expected": "Each role sees only its permitted operational tools, and manager-only API actions remain protected."
+  },
+  {
+    "name": "Manager retains existing event operations",
+    "viewport": "desktop",
+    "covers": [
+      "multi-event operations",
+      "team matchmaker",
+      "judging and calibration",
+      "mission control",
+      "certificate batch export"
+    ],
+    "description": "Checks that existing manager features remain available after adding role-based routing.",
+    "steps": [
+      "Sign in as manager",
+      "Switch between events",
+      "Open Teams and generate match suggestions",
+      "Open Judging and inspect raw and calibrated rankings",
+      "Download the certificate ZIP"
+    ],
+    "expected": "The manager workspace retains its existing operations and is not available to student accounts."
+  }
+]

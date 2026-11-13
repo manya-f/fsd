@@ -1,0 +1,32 @@
+{
+  "name": "hackpulse-mern-backend",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node -r ./dns-bootstrap.cjs src/server.js",
+    "dev": "node -r ./dns-bootstrap.cjs --watch src/server.js",
+    "seed": "node -r ./dns-bootstrap.cjs src/seed.js",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "archiver": "^8.0.0",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "express-rate-limit": "^7.5.0",
+    "helmet": "^8.0.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.19.0",
+    "socket.io": "^4.8.1",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/bcryptjs": "^2.4.6",
+    "supertest": "^7.1.4"
+  }
+}
